@@ -1,0 +1,166 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+
+\usetheme{Madrid}
+\usecolortheme{rose}
+}
+
+\usepackage{graphicx} 
+\usepackage{booktabs} 
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Linux Day 2014]{Package Manager e sistemi di init} 
+
+\author{Simone Lombardi}
+\institute[HCSSLUG] 
+{
+Universit\`a di Fisciano \\ 
+\medskip
+\textit{smlb@archlinux.info} 
+}
+\date{24 Ottobre 2014} 
+
+\begin{document}
+
+\begin{frame}
+\titlepage 
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} 
+\tableofcontents 
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Prima Parte} 
+%------------------------------------------------
+
+\subsection{Package Manager} 
+
+\begin{frame}
+\frametitle{Introduzione sui package manager}
+Un package manager \`e una serie di strumenti utilizzati per gestire in modo automatico ed intuitivo il software in una distribuzione GNU/Linux. Generalmente possiamo installare, rimuovere ed aggiornare i package (il metodo differisce da distro a distro). 
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Funzioni dei package manager}
+	I package manager:
+	\begin{itemize}
+		\item gestiscono le dipendenze (non tutti hanno questa funzione)
+		\item verificano il checksum di ogni singolo pacchetto da installare, quindi ne controllano la correttezza e completezza
+		\item verificano eventuali firme digitali, ovvero controllano la chiave GPG per verificare l'attendibilit\`a di un package
+		\item permettono di effettuare operazioni sui pacchetti installati, come aggiornamenti e in casi particolari anche downgrade (avanzamento a versione precedente)
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Suddivisione package manager}
+\begin{itemize}
+\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+\item \textbf{emerge, portage, ebuilds}: Gentoo e derivate
+\item \textbf{abs, makepkg, pacman}: Arch Linux
+\item \textbf{pkgtool}: Slackware
+\item \textbf{yum, dnf, rpm}: Fedora e derivate
+\item \textbf{zypper}: OpenSUSE
+\item \textbf{xbps}: Void Linux
+\item \textbf{PackageKit}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Differenze fra package manager}
+\begin{table}
+\begin{tabular}{| l | c | r |}
+\toprule
+\textbf{Nome} & \textbf{Risolve dipendenze} & \textbf{Formato}\\
+\midrule
+apt             &  \checkmark    & .deb \\
+emerge    & \checkmark     & LOLWUT \\
+dpkg         & NO   & .deb \\
+pacman   & \checkmark     & .pkg.tar.xz \\
+yum          & \checkmark     & .rpm \\
+pkgtool  & NO   & .txz \\
+zypper      & \checkmark     & .tgz \\
+\bottomrule
+\end{tabular}
+\caption{Comparison dei vari package manager}
+\end{table}
+\end{frame}
+
+%------------------------------------------------
+\section{Seconda Parte}
+\subsection{Sistemi di init}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Introduzione all'init}
+Nei sistemi UNIX, un sistema di init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
+\begin{itemize}
+	\item Avviare demoni (e/o script dell'utente)
+	\item Verificare il runlevel di una macchina
+	\item Effettuare check in fase di spegnimento e accensione
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Runlevel}
+Controllano quali processi/servizi sono avviati automaticamente dall'init, abbiamo sette runlevel:
+\begin{itemize}
+	\item 0: Halt
+	\item 1: Single-User Mode
+	\item 2: Multi-User Mode
+	\item 3: Multi-User con Network
+	\item 4: Definito dall'utente
+	\item 5: Avvia il sistema normalmente
+	\item 6: reboot
+\end{itemize}
+
+\textbf{NB}: \textit{questa \`e la lista dei runlevel standard, possono anche differire.}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Systemd}
+\textbf{Systemd} sta sostituendo SysVinit, esso dispone di svariate caratteristiche:
+\begin{itemize}
+	\item Parallelizzazione: processi avviati tutti via sockets
+	\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
+	\item Journaling: in formato binario, interrogabile con \textit{journalctl}
+	\item Compatibilit\`a: GNU/Linux-only
+	\item Troppe \textit{features} da inserire in una lista
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{SysVinit}
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{runlevel 0}}
+\huge{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
