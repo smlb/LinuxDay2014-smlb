@@ -8,6 +8,7 @@
 
 \usepackage{graphicx} 
 \usepackage{booktabs} 
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -107,10 +108,10 @@ zypper      & \checkmark     & .tgz \\
 
 \begin{frame}
 \frametitle{Introduzione all'init}
-Nei sistemi UNIX, un sistema di init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
+Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
 \begin{itemize}
 	\item Avviare demoni (e/o script dell'utente)
-	\item Verificare il runlevel di una macchina
+	\item Gestire/Verificare il runlevel di una macchina
 	\item Effettuare check in fase di spegnimento e accensione
 \end{itemize}
 \end{frame}
@@ -150,12 +151,39 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 %------------------------------------------------
 
 \begin{frame}
-	\frametitle{SysVinit}
+	\frametitle{OpenRC}
+	\textbf{OpenRC}:
+	\begin{itemize}
+		\item Portabile su tutti gli OS
+		\item Codici e configurazioni separate
+		\item Ordinamento dell'avvio dei demoni automatico
+	\end{itemize}	 
 \end{frame}
 
-
+% -----------------------------------------------
+\begin{frame}
+	\frametitle{SysVinit ed Upstart}
+	\textbf{SysVinit}
+	\begin{itemize}
+		\item PID 1
+		\item Lancia processi via /etc/inittab
+		\item Script contenuti in /etc/rc.d/init.d/ o /etc/init.d/
+	\end{itemize}	
+\textbf{Upstart}
+\begin{itemize}
+	\item Avviato da super-user
+	\item Gestisce i servizi \textit{critici} del sistema
+	\item Se l'init \textit{muore}, c'\`e un kernel panic
+\end{itemize}
+\end{frame}
 %------------------------------------------------
 
+\begin{frame}
+	\frametitle{Info}
+	Queste slides sono realizzate con \LaTeX  e rilasciate sotto GFDL.
+	I sorgenti risiedono su \href{https://github.com/smlb/LinuxDay2014-smlb}{Github}: sono ottenibili e modificabili liberamente.
+\end{frame}
+%------------------------------------------------
 \begin{frame}
 \Huge{\centerline{runlevel 0}}
 \huge{\centerline{The End}}
