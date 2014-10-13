@@ -47,19 +47,18 @@ Universit\`a di Fisciano \\
 
 \begin{frame}
 \frametitle{Introduzione sui package manager}
-Un package manager \`e una serie di strumenti utilizzati per gestire in modo automatico ed intuitivo il software in una distribuzione GNU/Linux. Generalmente possiamo installare, rimuovere ed aggiornare i package (il metodo differisce da distro a distro). 
+Un package manager comprende una serie di strumenti utilizzati per gestire in modo automatico ed intuitivo il software in una distribuzione GNU/Linux. Possiamo installare, rimuovere ed aggiornare i package (il metodo differisce da distro a distro). 
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 	\frametitle{Funzioni dei package manager}
-	I package manager:
 	\begin{itemize}
-		\item gestiscono le dipendenze (non tutti hanno questa funzione)
-		\item verificano il checksum di ogni singolo pacchetto da installare, quindi ne controllano la correttezza e completezza
-		\item verificano eventuali firme digitali, ovvero controllano la chiave GPG per verificare l'attendibilit\`a di un package
-		\item permettono di effettuare operazioni sui pacchetti installati, come aggiornamenti e in casi particolari anche downgrade (avanzamento a versione precedente)
+		\item gestione delle dipendenze (non tutti hanno questa funzione)
+		\item verifica dell checksum di ogni singolo pacchetto da installare, ovvero il controllo della correttezza e completezza
+		\item verifica di eventuali firme digitali, ovvero controllo della chiave GPG per verificare l'attendibilit\`a di un package
+		\item gestione di operazioni sui pacchetti installati, come aggiornamenti e in casi particolari anche downgrade (ritornare a versione precedente)
 	\end{itemize}
 \end{frame}
 
@@ -75,7 +74,7 @@ Un package manager \`e una serie di strumenti utilizzati per gestire in modo aut
 \item \textbf{yum, dnf, rpm}: Fedora e derivate
 \item \textbf{zypper}: OpenSUSE
 \item \textbf{xbps}: Void Linux
-\item \textbf{PackageKit}
+\item \textbf{PackageKit}: cross-distro
 \end{itemize}
 \end{frame}
 
@@ -97,7 +96,7 @@ pkgtool  & NO   & .txz \\
 zypper      & \checkmark     & .tgz \\
 \bottomrule
 \end{tabular}
-\caption{Comparison dei vari package manager}
+\caption{Confronto dei vari package manager}
 \end{table}
 \end{frame}
 
@@ -112,8 +111,10 @@ Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e u
 \begin{itemize}
 	\item Avviare demoni (e/o script dell'utente)
 	\item Gestire/Verificare il runlevel di una macchina
-	\item Effettuare check in fase di spegnimento e accensione
+	\item Effettuare check in fase di spegnimento e accensione \\
 \end{itemize}
+
+NB: per avere maggior informazioni sulle differenze fra i vari init recarsi \href{http://wiki.gentoo.org/wiki/Talk:Comparison_of_init_systems}{qui}
 \end{frame}
 
 %------------------------------------------------
@@ -138,9 +139,8 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 
 \begin{frame}
 \frametitle{Systemd}
-\textbf{Systemd} sta sostituendo SysVinit, esso dispone di svariate caratteristiche:
 \begin{itemize}
-	\item Parallelizzazione: processi avviati tutti via sockets
+	\item Sockets e D-Bus: avvio dei processi 
 	\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
 	\item Journaling: in formato binario, interrogabile con \textit{journalctl}
 	\item Compatibilit\`a: GNU/Linux-only
@@ -152,7 +152,6 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 
 \begin{frame}
 	\frametitle{OpenRC}
-	\textbf{OpenRC}:
 	\begin{itemize}
 		\item Portabile su tutti gli OS
 		\item Codici e configurazioni separate
@@ -180,7 +179,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 
 \begin{frame}
 	\frametitle{Altri sistemi di init}
-	Sono da menzionare altri sistemi di init meno noti, ma che comunque sono utilizzati da alcune distribuzioni GNU/LinuxS
+	Sono da menzionare altri sistemi di init meno noti, ma che comunque sono utilizzati da alcune distribuzioni GNU/Linux
 	\begin{itemize}
 		\item \textbf{Runit}: default in Void Linux
 		\item \textbf{Sinit}: sviluppato dal team s3r0 (suckless)
