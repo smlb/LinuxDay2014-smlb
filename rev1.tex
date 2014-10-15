@@ -18,7 +18,7 @@
 \author{Simone Lombardi}
 \institute[HCSSLUG] 
 {
-Universit\`a di Fisciano \\ 
+Universit\`a degli studi di Salerno \\ 
 \medskip
 \textit{smlb@archlinux.info} 
 }
@@ -88,7 +88,7 @@ Un package manager comprende una serie di strumenti utilizzati per gestire in mo
 \textbf{Nome} & \textbf{Risolve dipendenze} & \textbf{Formato}\\
 \midrule
 apt             &  \checkmark    & .deb \\
-emerge    & \checkmark     & LOLWUT \\
+emerge    & \checkmark     & ebuilds \\
 dpkg         & NO   & .deb \\
 pacman   & \checkmark     & .pkg.tar.xz \\
 yum          & \checkmark     & .rpm \\
@@ -140,7 +140,8 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 \frametitle{Systemd}
 \begin{itemize}
-	\item Sockets e D-Bus: avvio dei processi 
+	\item Parallelizzazione
+	\item Processi: avviati via socket e attivazione via D-Bus
 	\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
 	\item Journaling: in formato binario, interrogabile con \textit{journalctl}
 	\item Compatibilit\`a: GNU/Linux-only
@@ -156,6 +157,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 		\item Portabile su tutti gli OS
 		\item Codici e configurazioni separate
 		\item Ordinamento dell'avvio dei demoni automatico
+		\item Controllo e gestione via \textit{rc, rc-update e rc-status}. 
 	\end{itemize}	 
 \end{frame}
 
@@ -170,6 +172,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 	\end{itemize}	
 \textbf{Upstart}
 \begin{itemize}
+	\item Scritto usando libnih (equivalente di altre lib C come glib)
 	\item Avviato da super-user
 	\item Gestisce i servizi \textit{critici} del sistema
 	\item Se l'init \textit{muore}, c'\`e un kernel panic
