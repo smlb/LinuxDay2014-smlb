@@ -56,7 +56,7 @@ Un package manager comprende una serie di strumenti utilizzati per gestire in mo
 	\frametitle{Funzioni dei package manager}
 	\begin{itemize}
 		\item gestione delle dipendenze (non tutti hanno questa funzione)
-		\item verifica dell checksum di ogni singolo pacchetto da installare, ovvero il controllo della correttezza e completezza
+		\item verifica del checksum di ogni singolo pacchetto da installare, ovvero il controllo della correttezza e completezza
 		\item verifica di eventuali firme digitali, ovvero controllo della chiave GPG per verificare l'attendibilit\`a di un package
 		\item gestione di operazioni sui pacchetti installati, come aggiornamenti e in casi particolari anche downgrade (ritornare a versione precedente)
 	\end{itemize}
@@ -67,14 +67,14 @@ Un package manager comprende una serie di strumenti utilizzati per gestire in mo
 \begin{frame}
 \frametitle{Suddivisione package manager}
 \begin{itemize}
+\item \textbf{abs, pacman}: Arch Linux
 \item \textbf{apt, aptitude, dpkg}: Debian e derivate
-\item \textbf{emerge, portage, ebuilds}: Gentoo e derivate
-\item \textbf{abs, makepkg, pacman}: Arch Linux
+\item \textbf{emerge, portage}: Gentoo e derivate
+\item \textbf{PackageKit}: cross-distro
 \item \textbf{pkgtool}: Slackware
+\item \textbf{xbps}: Void Linux
 \item \textbf{yum, dnf, rpm}: Fedora e derivate
 \item \textbf{zypper}: OpenSUSE
-\item \textbf{xbps}: Void Linux
-\item \textbf{PackageKit}: cross-distro
 \end{itemize}
 \end{frame}
 
@@ -113,8 +113,6 @@ Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e u
 	\item Gestire/Verificare il runlevel di una macchina
 	\item Effettuare check in fase di spegnimento e accensione \\
 \end{itemize}
-
-NB: per avere maggior informazioni sulle differenze fra i vari init recarsi \href{http://wiki.gentoo.org/wiki/Talk:Comparison_of_init_systems}{qui}
 \end{frame}
 
 %------------------------------------------------
