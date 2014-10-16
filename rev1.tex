@@ -58,6 +58,36 @@ Un package manager comprende una serie di strumenti utilizzati per gestire in mo
 	\frametitle{Funzioni dei package manager}
 	\begin{itemize}
 		\item gestione delle dipendenze (non tutti hanno questa funzione)
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Funzioni dei package manager}
+	\begin{itemize}
+		\item gestione delle dipendenze (non tutti hanno questa funzione)
+		\item verifica del checksum di ogni singolo pacchetto da installare, ovvero il controllo della correttezza e completezza
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Funzioni dei package manager}
+	\begin{itemize}
+		\item gestione delle dipendenze (non tutti hanno questa funzione)
+		\item verifica del checksum di ogni singolo pacchetto da installare, ovvero il controllo della correttezza e completezza
+		\item verifica di eventuali firme digitali, ovvero controllo della chiave GPG per verificare l'attendibilit\`a di un package
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Funzioni dei package manager}
+	\begin{itemize}
+		\item gestione delle dipendenze (non tutti hanno questa funzione)
 		\item verifica del checksum di ogni singolo pacchetto da installare, ovvero il controllo della correttezza e completezza
 		\item verifica di eventuali firme digitali, ovvero controllo della chiave GPG per verificare l'attendibilit\`a di un package
 		\item gestione di operazioni sui pacchetti installati, come aggiornamenti e in casi particolari anche downgrade (ritornare a versione precedente)
@@ -69,19 +99,102 @@ Un package manager comprende una serie di strumenti utilizzati per gestire in mo
 \begin{frame}
 \frametitle{Suddivisione package manager}
 \begin{itemize}
-\item \textbf{abs, pacman}: Arch Linux
-\item \textbf{apt, aptitude, dpkg}: Debian e derivate
-\item \textbf{emerge, portage}: Gentoo e derivate
-\item \textbf{PackageKit}: cross-distro
-\item \textbf{pkgtool}: Slackware
-\item \textbf{xbps}: Void Linux
-\item \textbf{yum, dnf, rpm}: Fedora e derivate
-\item \textbf{zypper}: OpenSUSE
+\item \textbf{abs, pacman}: Arch Linux 
 \end{itemize}
 \end{frame}
 
 %------------------------------------------------
 
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+		\item \textbf{emerge, portage}: Gentoo e derivate
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+		\item \textbf{emerge, portage}: Gentoo e derivate
+		\item \textbf{PackageKit}: cross-distro
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+		\item \textbf{emerge, portage}: Gentoo e derivate
+		\item \textbf{PackageKit}: cross-distro
+		\item \textbf{pkgtool}: Slackware
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+		\item \textbf{emerge, portage}: Gentoo e derivate
+		\item \textbf{PackageKit}: cross-distro
+		\item \textbf{pkgtool}: Slackware
+		\item \textbf{xbps}: Void Linux
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+		\item \textbf{emerge, portage}: Gentoo e derivate
+		\item \textbf{PackageKit}: cross-distro
+		\item \textbf{pkgtool}: Slackware
+		\item \textbf{xbps}: Void Linux
+		\item \textbf{yum, dnf, rpm}: Fedora e derivate
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Suddivisione package manager}
+	\begin{itemize}
+		\item \textbf{abs, pacman}: Arch Linux
+		\item \textbf{apt, aptitude, dpkg}: Debian e derivate
+		\item \textbf{emerge, portage}: Gentoo e derivate
+		\item \textbf{PackageKit}: cross-distro
+		\item \textbf{pkgtool}: Slackware
+		\item \textbf{xbps}: Void Linux
+		\item \textbf{yum, dnf, rpm}: Fedora e derivate
+		\item \textbf{zypper}: OpenSUSE
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
 \begin{frame}
 \frametitle{Differenze fra package manager}
 \begin{table}
@@ -110,14 +223,44 @@ zypper      & \checkmark     & .tgz \\
 \begin{frame}
 \frametitle{Introduzione all'init}
 Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
-\begin{itemize}
-	\item Avviare demoni (e/o script dell'utente)
-	\item Gestire/Verificare il runlevel di una macchina
-	\item Effettuare check in fase di spegnimento e accensione \\
-\end{itemize}
 \end{frame}
 
 %------------------------------------------------
+
+\begin{frame}
+	\frametitle{Introduzione all'init}
+	Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
+ 	\begin{itemize}
+		\item Avviare demoni (e/o script dell'utente)
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Introduzione all'init}
+	Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
+	\begin{itemize}
+		\item Avviare demoni (e/o script dell'utente)
+		\item Gestire/Verificare il runlevel di una macchina
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Introduzione all'init}
+	Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
+	\begin{itemize}
+		\item Avviare demoni (e/o script dell'utente)
+		\item Gestire/Verificare il runlevel di una macchina
+		\item Effettuare check in fase di spegnimento e accensione \\
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+
 
 \begin{frame}
 \frametitle{Runlevel}
@@ -135,21 +278,65 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \textbf{NB}: \textit{questa \`e la lista dei runlevel standard, possono anche differire.}
 \end{frame}
 
+% -----------------------------------------------
+\begin{frame}
+	\frametitle{SysVinit}
+	\begin{itemize}
+		\item PID 1
+	\end{itemize}
+\end{frame}
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Systemd}
-\begin{itemize}
-	\item Parallelizzazione
-	\item Processi: avviati via socket e attivazione via D-Bus
-	\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
-	\item Journaling: in formato binario, interrogabile con \textit{journalctl}
-	\item Compatibilit\`a: GNU/Linux-only
-	\item Troppe \textit{features} da inserire in una lista
-\end{itemize}
+	\frametitle{SysVinit}
+	\begin{itemize}
+		\item PID 1
+		\item Lancia processi via /etc/inittab
+	\end{itemize}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{SysVinit}
+	\begin{itemize}
+		\item PID 1
+		\item Lancia processi via /etc/inittab
+		\item Script contenuti in /etc/rc.d/init.d/ o /etc/init.d/
+	\end{itemize}	
 \end{frame}
 
 %------------------------------------------------
+
+
+\begin{frame}
+	\frametitle{OpenRC}
+	\begin{itemize}
+		\item Portabile su tutti gli OS
+	\end{itemize}	 
+\end{frame}
+
+% -----------------------------------------------
+
+\begin{frame}
+	\frametitle{OpenRC}
+	\begin{itemize}
+		\item Portabile su tutti gli OS
+		\item Codici e configurazioni separate
+	\end{itemize}	 
+\end{frame}
+
+% -----------------------------------------------
+
+\begin{frame}
+	\frametitle{OpenRC}
+	\begin{itemize}
+		\item Portabile su tutti gli OS
+		\item Codici e configurazioni separate
+		\item Ordinamento dell'avvio dei demoni automatico
+	\end{itemize}	 
+\end{frame}
+
+% -----------------------------------------------
 
 \begin{frame}
 	\frametitle{OpenRC}
@@ -161,16 +348,40 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 	\end{itemize}	 
 \end{frame}
 
-% -----------------------------------------------
+%-----------------------------------------------
+
 \begin{frame}
-	\frametitle{SysVinit ed Upstart}
-	\textbf{SysVinit}
+	\frametitle{Upstart}
 	\begin{itemize}
-		\item PID 1
-		\item Lancia processi via /etc/inittab
-		\item Script contenuti in /etc/rc.d/init.d/ o /etc/init.d/
-	\end{itemize}	
-\textbf{Upstart}
+		\item Scritto usando libnih (equivalente di altre lib C come glib)
+	\end{itemize}
+\end{frame}
+
+%-----------------------------------------------
+
+\begin{frame}
+	\frametitle{Upstart}
+	\begin{itemize}
+		\item Scritto usando libnih (equivalente di altre lib C come glib)
+		\item Avviato da super-user
+	\end{itemize}
+\end{frame}
+
+%-----------------------------------------------
+
+\begin{frame}
+	\frametitle{Upstart}
+	\begin{itemize}
+		\item Scritto usando libnih (equivalente di altre lib C come glib)
+		\item Avviato da super-user
+		\item Gestisce i servizi \textit{critici} del sistema
+	\end{itemize}
+\end{frame}
+
+%-----------------------------------------------
+
+\begin{frame}
+\frametitle{Upstart}
 \begin{itemize}
 	\item Scritto usando libnih (equivalente di altre lib C come glib)
 	\item Avviato da super-user
@@ -178,20 +389,91 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 	\item Se l'init \textit{muore}, c'\`e un kernel panic
 \end{itemize}
 \end{frame}
+
 %------------------------------------------------
 
 \begin{frame}
+\frametitle{Systemd}
+\begin{itemize}
+	\item Parallelizzazione
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Systemd}
+	\begin{itemize}
+		\item Parallelizzazione
+		\item Processi: avviati via socket e attivazione via D-Bus
+	\end{itemize}
+\end{frame}
+
+%--------------------------------------------------
+
+\begin{frame}
+	\frametitle{Systemd}
+	\begin{itemize}
+		\item Parallelizzazione
+		\item Processi: avviati via socket e attivazione via D-Bus
+		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Systemd}
+	\begin{itemize}
+		\item Parallelizzazione
+		\item Processi: avviati via socket e attivazione via D-Bus
+		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
+		\item Journaling: in formato binario, interrogabile con \textit{journalctl}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Systemd}
+	\begin{itemize}
+		\item Parallelizzazione
+		\item Processi: avviati via socket e attivazione via D-Bus
+		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
+		\item Journaling: in formato binario, interrogabile con \textit{journalctl}
+		\item Compatibilit\`a: GNU/Linux-only
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Systemd}
+	\begin{itemize}
+		\item Parallelizzazione
+		\item Processi: avviati via socket e attivazione via D-Bus
+		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
+		\item Journaling: in formato binario, interrogabile con \textit{journalctl}
+		\item Compatibilit\`a: GNU/Linux-only
+		\item Troppe \textit{features} da inserire in una lista
+	\end{itemize}
+\end{frame}
+
+%-----------------------------------------------
+
+\begin{frame}
 	\frametitle{Altri sistemi di init}
-	Sono da menzionare altri sistemi di init meno noti, ma che comunque sono utilizzati da alcune distribuzioni GNU/Linux
 	\begin{itemize}
 		\item \textbf{Runit}: default in Void Linux
 		\item \textbf{Sinit}: sviluppato dal team s3r0 (suckless)
 		\item \textbf{minirc}: minimalistic-init-system
 	\end{itemize}
 \end{frame}
+
 %------------------------------------------------
+
 \begin{frame}
-	\frametitle{Info}
+	\frametitle{README}
 	Queste slides sono realizzate con \LaTeX  e rilasciate sotto GFDL.
 	I sorgenti risiedono su \href{https://github.com/smlb/LinuxDay2014-smlb}{Github}: sono ottenibili e modificabili liberamente.
 \end{frame}
