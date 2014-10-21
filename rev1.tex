@@ -221,6 +221,14 @@ zypper      & \checkmark     & .tgz \\
 %------------------------------------------------
 
 \begin{frame}
+\begin{center}
+		\huge \textbf{Init}
+\end{center}
+
+%------------------------------------------------
+
+\end{frame}
+\begin{frame}
 \frametitle{Introduzione all'init}
 Nei sistemi UNIX, un init \`e il primo processo avviato durante il boot ed \`e un demone che verr\`a killato quando viene effettivamente spenta la macchina. L'init \`e avviato dal kernel: ha PID 1 e si occupa di gestire varie operazioni all'interno di un calcolatore:
 \end{frame}
@@ -282,7 +290,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{SysVinit}
 	\begin{itemize}
-		\item PID 1
+		\item Cronologicamente \`e il pi\`u \textit{anziano} (1988)
 	\end{itemize}
 \end{frame}
 %------------------------------------------------
@@ -290,8 +298,8 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{SysVinit}
 	\begin{itemize}
-		\item PID 1
-		\item Lancia processi via /etc/inittab
+		\item Cronologicamente \`e il pi\`u \textit{anziano} (1988)
+		\item Source code in C, codice semplice e pulito
 	\end{itemize}
 \end{frame}
 %------------------------------------------------
@@ -299,19 +307,54 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{SysVinit}
 	\begin{itemize}
+    	\item Cronologicamente \`e il pi\`u \textit{anziano} (1988)
+    	\item Source code in C, codice semplice e pulito
 		\item PID 1
-		\item Lancia processi via /etc/inittab
-		\item Script contenuti in /etc/rc.d/init.d/ o /etc/init.d/
 	\end{itemize}	
 \end{frame}
 
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{SysVinit}
+\begin{itemize}
+	\item Cronologicamente \`e il pi\`u \textit{anziano} (1988)
+	\item Source code in C, codice semplice e pulito
+	\item PID 1
+	\item Lancia processi via /etc/inittab
+\end{itemize}	
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{SysVinit}
+\begin{itemize}
+	\item Cronologicamente \`e il pi\`u \textit{anziano} (1988)
+	\item Source code in C, codice semplice e pulito
+	\item PID 1
+	\item Lancia processi via /etc/inittab
+	\item Script contenuti in /etc/rc.d/init.d/ o /etc/rc.d/
+\end{itemize}	
+\end{frame}
+
+%------------------------------------------------
 
 \begin{frame}
 	\frametitle{OpenRC}
 	\begin{itemize}
 		\item Portabile su tutti gli OS
+	\end{itemize}	 
+\end{frame}
+
+
+% -----------------------------------------------
+
+\begin{frame}
+	\frametitle{OpenRC}
+	\begin{itemize}
+		\item Portabile su tutti gli OS
+		\item Attivazione non via socket
 	\end{itemize}	 
 \end{frame}
 
@@ -321,30 +364,20 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 	\frametitle{OpenRC}
 	\begin{itemize}
 		\item Portabile su tutti gli OS
-		\item Codici e configurazioni separate
-	\end{itemize}	 
-\end{frame}
-
-% -----------------------------------------------
-
-\begin{frame}
-	\frametitle{OpenRC}
-	\begin{itemize}
-		\item Portabile su tutti gli OS
-		\item Codici e configurazioni separate
-		\item Ordinamento dell'avvio dei demoni automatico
-	\end{itemize}	 
-\end{frame}
-
-% -----------------------------------------------
-
-\begin{frame}
-	\frametitle{OpenRC}
-	\begin{itemize}
-		\item Portabile su tutti gli OS
-		\item Codici e configurazioni separate
-		\item Ordinamento dell'avvio dei demoni automatico
+		\item Attivazione non via socket
 		\item Controllo e gestione via \textit{rc, rc-update e rc-status}. 
+	\end{itemize}	 
+\end{frame}
+
+%-----------------------------------------------
+
+\begin{frame}
+	\frametitle{OpenRC}
+	\begin{itemize}
+		\item Portabile su tutti gli OS
+		\item Attivazione non via socket
+		\item Controllo e gestione via \textit{rc, rc-update e rc-status}. 
+		\item Parallelizzazione attualmente in fase di sviluppo
 	\end{itemize}	 
 \end{frame}
 
@@ -378,16 +411,29 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 	\end{itemize}
 \end{frame}
 
-%-----------------------------------------------
+%------------------------------------------------
 
 \begin{frame}
-\frametitle{Upstart}
-\begin{itemize}
-	\item Scritto usando libnih (equivalente di altre lib C come glib)
-	\item Avviato da super-user
-	\item Gestisce i servizi \textit{critici} del sistema
-	\item Se l'init \textit{muore}, c'\`e un kernel panic
-\end{itemize}
+	\frametitle{Upstart}
+	\begin{itemize}
+		\item Scritto usando libnih (equivalente di altre lib C come glib)
+		\item Avviato da super-user
+		\item Gestisce i servizi \textit{critici} del sistema
+		\item Sviluppato e manutenuto da Canonical
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Upstart}
+	\begin{itemize}
+		\item Scritto usando libnih (equivalente di altre lib C come glib)
+		\item Avviato da super-user
+		\item Gestisce i servizi \textit{critici} del sistema
+		\item Sviluppato e manutenuto da Canonical
+		\item Copyright: i dev sono tenuti a firmare il loro contributo incluso in upstream	
+	\end{itemize}
 \end{frame}
 
 %------------------------------------------------
@@ -395,7 +441,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 \frametitle{Systemd}
 \begin{itemize}
-	\item Parallelizzazione
+	\item Parallelizzazione: aggressiva quando vi \`e la presenza massiccia di processi che sfruttano il meccanismo client-server
 \end{itemize}
 \end{frame}
 
@@ -404,7 +450,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{Systemd}
 	\begin{itemize}
-		\item Parallelizzazione
+		\item Parallelizzazione: aggressiva quando vi \`e la presenza massiccia di processi che sfruttano il meccanismo client-server
 		\item Processi: avviati via socket e attivazione via D-Bus
 	\end{itemize}
 \end{frame}
@@ -414,7 +460,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{Systemd}
 	\begin{itemize}
-		\item Parallelizzazione
+		\item Parallelizzazione: aggressiva quando vi \`e la presenza massiccia di processi che sfruttano il meccanismo client-server
 		\item Processi: avviati via socket e attivazione via D-Bus
 		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
 	\end{itemize}
@@ -425,7 +471,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{Systemd}
 	\begin{itemize}
-		\item Parallelizzazione
+		\item Parallelizzazione: aggressiva quando vi \`e la presenza massiccia di processi che sfruttano il meccanismo client-server
 		\item Processi: avviati via socket e attivazione via D-Bus
 		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
 		\item Journaling: in formato binario, interrogabile con \textit{journalctl}
@@ -437,7 +483,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{Systemd}
 	\begin{itemize}
-		\item Parallelizzazione
+		\item Parallelizzazione: aggressiva quando vi \`e la presenza massiccia di processi che sfruttano il meccanismo client-server
 		\item Processi: avviati via socket e attivazione via D-Bus
 		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
 		\item Journaling: in formato binario, interrogabile con \textit{journalctl}
@@ -450,7 +496,7 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 \begin{frame}
 	\frametitle{Systemd}
 	\begin{itemize}
-		\item Parallelizzazione
+		\item Parallelizzazione: aggressiva quando vi \`e la presenza massiccia di processi che sfruttano il meccanismo client-server
 		\item Processi: avviati via socket e attivazione via D-Bus
 		\item Unit Files: gestione di varie procedure tramite files con estensioni diverse (.service, .timer, .socket, .mount etc)
 		\item Journaling: in formato binario, interrogabile con \textit{journalctl}
@@ -474,8 +520,12 @@ Controllano quali processi/servizi sono avviati automaticamente dall'init, abbia
 
 \begin{frame}
 	\frametitle{README}
-	Queste slides sono realizzate con \LaTeX  e rilasciate sotto GFDL.
-	I sorgenti risiedono su \href{https://github.com/smlb/LinuxDay2014-smlb}{Github}: sono ottenibili e modificabili liberamente.
+\begin{center}
+		Queste slides sono realizzate con \LaTeX  \\
+
+	Sono rilasciate sotto GFDL
+	e i sorgenti risiedono su \href{https://github.com/smlb/LinuxDay2014-smlb}{Github}: sono ottenibili e modificabili liberamente.
+	\end{center}
 \end{frame}
 %------------------------------------------------
 \begin{frame}
